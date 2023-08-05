@@ -16,7 +16,11 @@ public class MemberService {
         this.memberRepository = memberRepository;
 
     }
+<<<<<<< HEAD
     public Long join(Member member){
+=======
+    public Long join(Membermember){
+>>>>>>> 36907030a37c86492d6aa29771a2f257d3651290
         validateDuplicateMember(member);
         memberRepository.save(member);
         return memeber.getId();
