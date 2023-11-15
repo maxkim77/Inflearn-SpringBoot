@@ -1,16 +1,18 @@
-package main.java.hello.demo.Controller;
-import main.java.hello.demo.Member;
-import main.java.hello.demo.MemberService;
+package hello.demo.controller;
 
-import java.util.List;
-
+import hello.demo.domain.Member;
+import hello.demo.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+import java.util.List;
+
 @Controller
 public class MemberController {
+
     private final MemberService memberService;
 
     public MemberController(MemberService memberService) {
