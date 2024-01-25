@@ -21,4 +21,6 @@ public class Member {
         this.name = name;
     }
 
+    public void setname(String spring) {
+    }
 }
