@@ -6,6 +6,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.sql.SQLException;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 
@@ -21,12 +23,12 @@ public class MemberServiceTest {
     }
 
     @AfterEach
-    public void afterEach() {
+    public void afterEach() throws SQLException {
         memberRepository.clearStore();
     }
 
     @Test
-    void 회원가입() {
+    void 회원가입() throws SQLException {
         Member member = new Member();
         member.setName("hello");
 
@@ -37,7 +39,7 @@ public class MemberServiceTest {
     }
 
     @Test
-    public void 중복_회원_예외() {
+    public void 중복_회원_예외() throws SQLException {
         Member member1 = new Member();
         member1.setName("spring");
 
@@ -45,7 +47,7 @@ public class MemberServiceTest {
         member2.setName("spring");
 
         memberService.join(member1);
-        assertThrows(IllegalStateException.class, () -> memberService.join(member2))
+        assertThrows(IllegalStateException.class, () -> memberService.join(member2));
     }
 
 
